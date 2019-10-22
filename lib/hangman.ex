@@ -1,18 +1,12 @@
 defmodule Hangman do
-  @moduledoc """
-  Documentation for Hangman.
-  """
+  def random_word() do
+    word_list()
+    |> Enum.random()
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Hangman.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def word_list do
+    "assets/words.txt"
+    |> File.read!()
+    |> String.split(~r/\n/)
   end
 end
