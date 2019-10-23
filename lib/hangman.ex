@@ -1,12 +1,5 @@
 defmodule Hangman do
-  def random_word() do
-    word_list()
-    |> Enum.random()
-  end
+  alias Hangman.Game
 
-  def word_list do
-    "assets/words.txt"
-    |> File.read!()
-    |> String.split(~r/\n/)
-  end
+  defdelegate new_game(), to: Game
 end
